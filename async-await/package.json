@@ -1,0 +1,19 @@
+{
+  "name": "async-await",
+  "version": "1.0.0",
+  "description": "",
+  "main": "http-client.js",
+  "scripts": {
+    "http-client": "babel-node http-client.js",
+    "files": "babel-node files.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexey Orlenko <eaglexrlnk@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.13.2",
+    "fast-async": "^6.0.32"
+  }
+}
