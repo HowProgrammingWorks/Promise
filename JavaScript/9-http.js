@@ -1,3 +1,5 @@
+'use strict';
+
 const httpGet = require('./get-json');
 const async = require('./async');
 

@@ -1,3 +1,5 @@
+'use strict';
+
 const httpGet = require('./get-json');
 
 const baseUrl = 'http://localhost:3000/';

@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 
 fs.readFile('file1.txt', (err, data) => {

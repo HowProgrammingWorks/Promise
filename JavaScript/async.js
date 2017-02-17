@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (asyncFn) => {
   let generator = asyncFn();
   let result = generator.next();

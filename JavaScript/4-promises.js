@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const promisify = require('./promisify');
 
@@ -10,13 +12,9 @@ function readTextFile(filename) {
 
 readTextFile('file1.txt').then((data) => {
   console.log(data);
-  return readTextFile('file2-!!!.txt');
+  return readTextFile('file2.txt');
 }).then((data) => {
   console.log(data);
-  return readTextFile('file3.txt');
-}, (reason) => {
-  console.log('Cannot read file');
-  console.log(reason);
   return readTextFile('file3.txt');
 }).then((data) => {
   console.log(data);
