@@ -6,7 +6,7 @@ const promisify = require('./promisify');
 const readFile = promisify(fs.readFile);
 
 function readTextFile(filename) {
-  let promise = readFile(filename).then(data => data.toString());
+  const promise = readFile(filename).then(data => data.toString());
   return promise;
 }
 

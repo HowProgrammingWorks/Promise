@@ -27,13 +27,13 @@ const routes = {
 };
 
 const server = http.createServer((req, res) => {
-  let parsedUrl = url.parse(req.url);
+  const parsedUrl = url.parse(req.url);
   let path = parsedUrl.pathname;
   if (path.endsWith('/') && path.length > 1) {
     path = path.slice(0, -1);
   }
 
-  let handler = routes[path];
+  const handler = routes[path];
   if (!handler) {
     res.writeHead(404);
     res.end('Not found');
@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
   }
 
   handler(req, (result) => {
-    let json = JSON.stringify(result);
+    const json = JSON.stringify(result);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(json);
   });

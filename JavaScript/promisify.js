@@ -10,7 +10,7 @@ module.exports = function promisify(asyncFunction) {
           resolve(result);
         }
       });
-      asyncFunction.apply(undefined, args);
+      asyncFunction(...args);
     });
   };
 };
