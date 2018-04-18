@@ -1,16 +1,11 @@
 'use strict';
 
-module.exports = function promisify(asyncFunction) {
-  return (...args) => {
-    return new Promise((resolve, reject) => {
-      args.push((err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(result);
-        }
-      });
-      asyncFunction(...args);
+module.exports = asyncFunction => (...args) => (
+  new Promise((resolve, reject) => {
+    args.push((err, result) => {
+      if (err) reject(err);
+      else resolve(result);
     });
-  };
-};
+    asyncFunction(...args);
+  })
+);

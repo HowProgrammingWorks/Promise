@@ -5,17 +5,18 @@ const promisify = require('./promisify');
 
 const readFile = promisify(fs.readFile);
 
-function readTextFile(filename) {
-  const promise = readFile(filename).then(data => data.toString());
-  return promise;
-}
+const readTextFile = filename => readFile(filename)
+  .then(data => data.toString());
 
-readTextFile('file1.txt').then((data) => {
-  console.log(data);
-  return readTextFile('file2.txt');
-}).then((data) => {
-  console.log(data);
-  return readTextFile('file3.txt');
-}).then((data) => {
-  console.log(data);
-});
+readTextFile('file1.txt')
+  .then((data) => {
+    console.log(data);
+    return readTextFile('file2.txt');
+  })
+  .then((data) => {
+    console.log(data);
+    return readTextFile('file3.txt');
+  })
+  .then((data) => {
+    console.log(data);
+  });
