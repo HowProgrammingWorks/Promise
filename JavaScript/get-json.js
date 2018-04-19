@@ -2,7 +2,7 @@
 
 const http = require('http');
 
-module.exports = (url) => new Promise((resolve, reject) => {
+module.exports = url => new Promise((resolve, reject) => {
   http.get(url, res => {
     const code = res.statusCode;
     if (code !== 200) {

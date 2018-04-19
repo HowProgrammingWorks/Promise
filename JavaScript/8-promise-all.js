@@ -11,5 +11,5 @@ httpGet(baseUrl).then((api) => {
   }
   Promise.all(promises).then((values) => {
     console.log(values);
-  });
+  }).catch();
 });
