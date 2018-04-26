@@ -1,14 +1,14 @@
 'use strict';
 
-import fs from 'fs';
-import promisify from '../promisify';
+const fs = require('fs');
+const { promisify } = require('util');
 
 const readFile = promisify(fs.readFile);
 
-async function readTextFile(filename) {
+const readTextFile = async (filename) => {
   let data = await readFile(filename);
   return data.toString();
-}
+};
 
 (async () => {
   console.log(await readTextFile('../file1.txt'));

@@ -1,7 +1,6 @@
 'use strict';
 
-import httpGet from '../get-json';
-
+const { httpGet } = require('../get-json');
 const baseUrl = 'http://localhost:3000/';
 
 (async () => {
