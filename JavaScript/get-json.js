@@ -31,4 +31,4 @@ const httpGet = url => new Promise((resolve, reject) => {
   });
 });
 
-module.exports = { httpGet };
+module.exports = httpGet;
