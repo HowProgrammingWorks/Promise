@@ -6,7 +6,7 @@ const { promisify } = require('util');
 const readFile = promisify(fs.readFile);
 
 const readTextFile = async (filename) => {
-  let data = await readFile(filename);
+  let data = await readFile(filename, 'utf8');
   return data.toString();
 };
 

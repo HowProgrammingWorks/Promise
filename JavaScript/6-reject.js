@@ -5,7 +5,7 @@ const { promisify } = require('util');
 
 const readFile = promisify(fs.readFile);
 
-const readTextFile = filename => readFile(filename)
+const readTextFile = filename => readFile(filename, 'utf8')
   .then(data => data.toString());
 
 readTextFile('file1.txt')

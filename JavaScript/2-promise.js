@@ -2,21 +2,21 @@
 
 const fs = require('fs');
 
-const readFile = (filename) => new Promise((resolve, reject) => {
-  fs.readFile(filename, (err, data) => {
-    if (err) reject(err);
-    else resolve(data.toString());
-  });
-});
+const readFile = (filename, encoding) =>
+  new Promise((resolve, reject) =>
+    fs.readFile(filename, encoding, (err, data) => {
+      if (err) reject(err);
+      else resolve(data.toString());
+    }));
 
-readFile('file1.txt')
+readFile('file1.txt', 'utf8')
   .then(data => {
     console.log(data);
-    return readFile('file2.txt');
+    return readFile('file2.txt', 'utf8');
   })
   .then(data => {
     console.log(data);
-    return readFile('file3.txt');
+    return readFile('file3.txt', 'utf8');
   })
   .then(data => {
     console.log(data);

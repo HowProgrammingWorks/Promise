@@ -6,10 +6,8 @@ const async = require('./async');
 
 const readFile = promisify(fs.readFile);
 
-function readTextFile(filename) {
-  return readFile(filename)
-    .then(buffer => buffer.toString());
-}
+const readTextFile = filename => readFile(filename, 'utf8')
+  .then(buffer => buffer.toString());
 
 async(function* () {
   console.log(yield readTextFile('file1.txt'));

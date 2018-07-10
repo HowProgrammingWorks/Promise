@@ -5,14 +5,14 @@ const promisify = require('./promisify');
 
 const readFile = promisify(fs.readFile);
 
-readFile('file1.txt')
+readFile('file1.txt', 'utf8')
   .then(data => {
     console.log(data.toString());
-    return readFile('file2.txt');
+    return readFile('file2.txt', 'utf8');
   })
   .then(data => {
     console.log(data.toString());
-    return readFile('file3.txt');
+    return readFile('file3.txt', 'utf8');
   })
   .then(data => {
     console.log(data.toString());
