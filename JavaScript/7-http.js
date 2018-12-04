@@ -1,12 +1,11 @@
 'use strict';
 
-const httpGet = require('./get-json');
+const fetch = require('./6-fetch.js');
 
-const baseUrl = 'http://localhost:3000/';
-
-httpGet(baseUrl + 'person')
-  .then((data) => {
+fetch('http://localhost:3000/person')
+  .then(data => {
     console.log(data);
-    return httpGet(baseUrl + 'city');
   })
-  .then(console.log);
+  .catch(err => {
+    console.error(err);
+  });
