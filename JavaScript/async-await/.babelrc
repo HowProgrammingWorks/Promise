@@ -1,4 +1,0 @@
-{
-  "plugins": ["fast-async"],
-  "presets": ["babel-preset-es2015"]
-}
