@@ -2,7 +2,7 @@
 
 // Pending
 
-const promise1 = new Promise((resolve, reject) => {
+const promise1 = new Promise(resolve => {
   setTimeout(() => {
     resolve('value1');
   }, 0);
