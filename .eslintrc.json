@@ -189,9 +189,6 @@
         "checkLoops": false
       }
     ],
-    "no-console": [
-      "off"
-    ],
     "no-useless-concat": [
       "error"
     ],
