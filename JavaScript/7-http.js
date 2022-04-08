@@ -3,9 +3,9 @@
 const fetch = require('./6-fetch.js');
 
 fetch('http://localhost:3000/person')
-  .then(data => {
+  .then((data) => {
     console.log(data);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
   });

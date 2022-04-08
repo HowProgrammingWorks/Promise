@@ -2,13 +2,13 @@
 
 const fs = require('fs');
 
-const readTextFile = filename => fs.promises.readFile(filename, 'utf8');
+const readTextFile = (filename) => fs.promises.readFile(filename, 'utf8');
 
 readTextFile('file1-.txt')
-  .then(data => {
+  .then((data) => {
     console.dir({ file1: data });
   })
-  .catch(reason => {
+  .catch((reason) => {
     console.log('Cannot read file1.txt');
     console.log(reason);
   })

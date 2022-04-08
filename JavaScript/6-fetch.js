@@ -2,8 +2,8 @@
 
 const http = require('http');
 
-const fetch = url => new Promise((resolve, reject) => {
-  http.get(url, res => {
+const fetch = (url) => new Promise((resolve, reject) => {
+  http.get(url, (res) => {
     const code = res.statusCode;
     if (code !== 200) {
       return reject(new Error(`HTTP status code ${code}`));
@@ -12,7 +12,7 @@ const fetch = url => new Promise((resolve, reject) => {
     res.on('error', reject);
 
     const chunks = [];
-    res.on('data', chunk => {
+    res.on('data', (chunk) => {
       chunks.push(chunk);
     });
 

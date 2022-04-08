@@ -11,9 +11,9 @@ const promises = [
 ];
 
 Promise.all(promises)
-  .then(values => {
+  .then((values) => {
     console.log(values);
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });

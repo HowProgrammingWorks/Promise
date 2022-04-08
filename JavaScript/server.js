@@ -40,7 +40,7 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  handler(req, result => {
+  handler(req, (result) => {
     const json = JSON.stringify(result);
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(json);

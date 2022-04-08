@@ -2,7 +2,7 @@
 
 // Pending
 
-const promise1 = new Promise(resolve => {
+const promise1 = new Promise((resolve) => {
   setTimeout(() => {
     resolve('value1');
   }, 0);
@@ -12,7 +12,7 @@ promise1.then(console.log); // 'value1' (delayed)
 
 // Immediate resolve
 
-const promise2 = new Promise(resolve => resolve('value2'));
+const promise2 = new Promise((resolve) => resolve('value2'));
 console.dir({ promise2 }); // Promise { 'value2' }
 promise2.then(console.log); // 'value2'
 
@@ -48,14 +48,14 @@ const readFile = (filename, encoding) =>
     }));
 
 readFile('file1.txt', 'utf8')
-  .then(data => {
+  .then((data) => {
     console.log(data);
     return readFile('file2.txt', 'utf8');
   })
-  .then(data => {
+  .then((data) => {
     console.log(data);
     return readFile('file3.txt', 'utf8');
   })
-  .then(data => {
+  .then((data) => {
     console.log(data);
   });
