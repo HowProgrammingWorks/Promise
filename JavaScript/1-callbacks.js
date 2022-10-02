@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 fs.readFile('file1.txt', 'utf8', (err, data) => {
   console.log(err || data.toString());

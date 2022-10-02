@@ -1,7 +1,7 @@
 'use strict';
 
-const http = require('http');
-const url = require('url');
+const http = require('node:http');
+const url = require('node:url');
 
 const routes = {
   '/': (request, callback) => {

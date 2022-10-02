@@ -1,6 +1,6 @@
 'use strict';
 
-const http = require('http');
+const http = require('node:http');
 
 const fetch = (url) => new Promise((resolve, reject) => {
   http.get(url, (res) => {
