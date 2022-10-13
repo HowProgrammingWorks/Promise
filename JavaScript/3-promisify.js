@@ -8,7 +8,7 @@ const promisify = (fn) => (...args) => new Promise((resolve, reject) => {
   fn(...args);
 });
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 const readFile1 = promisify(fs.readFile);
 
@@ -28,7 +28,7 @@ readFile1('file1.txt', 'utf8')
     console.log(err);
   });
 
-const util = require('util');
+const util = require('node:util');
 
 const readFile2 = util.promisify(fs.readFile);
 
