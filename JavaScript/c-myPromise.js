@@ -13,7 +13,7 @@ const STATUS = {
 
 class UnhandledPromiseRejection extends Error {
   constructor(value) {
-    const error = `\n${value}`;
+    const error = `\n${value}\n`;
     super(error);
   }
 }
