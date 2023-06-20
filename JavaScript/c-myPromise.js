@@ -185,12 +185,16 @@ class MyPromise {
     return new MyPromise((resolve, reject) => {
       for (let i = 0; i < length; i++) {
         promises[i]
-          .then((value) => {
-            result[i] = value;
-            completedPromises++;
-            if (completedPromises === length) resolve(result);
-          })
-          .catch(reject);
+          .then(
+            (value) => {
+              result[i] = value;
+              completedPromises++;
+              if (completedPromises === length) resolve(result);
+            },
+            (reason) => {
+              reject(reason);
+            }
+          );
       }
     });
   }
@@ -203,12 +207,17 @@ class MyPromise {
     return new MyPromise((resolve, reject) => {
       for (let i = 0; i < length; i++) {
         promises[i]
-          .catch((reason) => {
-            errors[i] = reason;
-            errorsPromises++;
-            if (errorsPromises === length) reject(errors);
-          })
-          .then(resolve);
+          .then(
+            (value) => {
+              resolve(value);
+            },
+            (reason) => {
+              errors[i] = reason;
+              errorsPromises++;
+              if (errorsPromises === length)
+                reject(new AggregateError(errors, 'All promises were rejected'));
+            }
+          );
       }
     });
   }
