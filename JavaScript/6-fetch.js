@@ -6,7 +6,7 @@ const fetch = (url) => new Promise((resolve, reject) => {
   http.get(url, (res) => {
     const code = res.statusCode;
     if (code !== 200) {
-      return reject(new Error(`HTTP status code ${code}`));
+      return void reject(new Error(`HTTP status code ${code}`));
     }
 
     res.on('error', reject);
@@ -20,9 +20,9 @@ const fetch = (url) => new Promise((resolve, reject) => {
       const json = Buffer.concat(chunks).toString();
       try {
         const object = JSON.parse(json);
-        resolve(object);
+        return void resolve(object);
       } catch (error) {
-        return reject(error);
+        return void reject(error);
       }
     });
   });
