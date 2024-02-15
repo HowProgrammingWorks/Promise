@@ -7,7 +7,7 @@ const baseUrl = 'http://localhost:3000';
 const promises = [
   fetch(baseUrl + '/person'),
   fetch(baseUrl + '/'),
-  fetch(baseUrl + '/city')
+  fetch(baseUrl + '/city'),
 ];
 
 Promise.race(promises)

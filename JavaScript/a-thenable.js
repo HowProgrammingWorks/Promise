@@ -3,27 +3,21 @@
 const fs = require('node:fs');
 
 class Thenable {
-  constructor() {
-    this.next = null;
-  }
+  next = null;
 
   then(fn) {
     this.fn = fn;
-    const next = new Thenable();
-    this.next = next;
-    return next;
+    this.next = new Thenable();
+    return this.next;
   }
 
   resolve(value) {
-    const fn = this.fn;
-    if (fn) {
-      const next = fn(value);
-      if (next) {
-        next.then((value) => {
-          this.next.resolve(value);
-        });
-      }
-    }
+    if (!this.fn) return;
+    const next = this.fn(value);
+    if (!next) return;
+    next.then((value) => {
+      this.next.resolve(value);
+    });
   }
 }
 

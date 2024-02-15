@@ -6,21 +6,21 @@ const routes = {
   '/': (request, callback) => {
     callback({
       apiVersion: '1.0',
-      resources: ['person', 'city']
+      resources: ['person', 'city'],
     });
   },
 
   '/person': (request, callback) => {
     callback({
       name: 'Alex',
-      age: 19
+      age: 19,
     });
   },
 
   '/city': (request, callback) => {
     callback({
       name: 'Kyiv',
-      country: 'Ukraine'
+      country: 'Ukraine',
     });
   }
 };
@@ -32,7 +32,6 @@ const server = http.createServer((req, res) => {
     res.end('Not found');
     return;
   }
-
   handler(req, (result) => {
     const json = JSON.stringify(result);
     res.writeHead(200, { 'Content-Type': 'application/json' });

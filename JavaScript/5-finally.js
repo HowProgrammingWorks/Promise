@@ -2,9 +2,7 @@
 
 const fs = require('node:fs');
 
-const readTextFile = (filename) => fs.promises.readFile(filename, 'utf8');
-
-readTextFile('file1-.txt')
+fs.promises.readFile('file1.txt', 'utf8')
   .then((data) => {
     console.dir({ file1: data });
   })
