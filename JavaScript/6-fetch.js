@@ -3,28 +3,16 @@
 const http = require('node:http');
 
 const fetch = (url) => new Promise((resolve, reject) => {
-  http.get(url, (res) => {
+  http.get(url, async (res) => {
     const code = res.statusCode;
     if (code !== 200) {
-      return void reject(new Error(`HTTP status code ${code}`));
+      const err = new Error(`HTTP status code ${code}`);
+      return void reject(err);
     }
-
-    res.on('error', reject);
-
     const chunks = [];
-    res.on('data', (chunk) => {
-      chunks.push(chunk);
-    });
-
-    res.on('end', () => {
-      const json = Buffer.concat(chunks).toString();
-      try {
-        const object = JSON.parse(json);
-        return void resolve(object);
-      } catch (error) {
-        return void reject(error);
-      }
-    });
+    for await (const chunk of res) chunks.push(chunk);
+    const data = Buffer.concat(chunks).toString();
+    resolve(JSON.parse(data));
   });
 });
 
