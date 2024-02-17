@@ -1,8 +1,8 @@
 'use strict';
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs/promises');
 
-fs.promises.readFile('file1.txt', 'utf8')
+readFile('file1.txt', 'utf8')
   .then((data) => {
     console.dir({ file1: data });
   })

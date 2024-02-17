@@ -1,26 +1,22 @@
 'use strict';
 
-const fs = require('node:fs');
+const { readFile } = require('node:fs/promises');
 
-const readTextFile = (filename) => (
-  fs.promises.readFile(filename, 'utf8')
-);
-
-readTextFile('file1.txt')
+readFile('file1.txt', 'utf8')
   .then((data) => {
     console.dir({ file1: data });
-    return readTextFile('file2.txt');
+    return readFile('file2.txt', 'utf8');
   }, (reason) => {
-    console.log('Cannot read file1.txt --- A');
+    console.log('1: Cannot read file1.txt');
     console.log(reason);
   })
   .catch((reason) => {
-    console.log('Cannot read file1.txt --- B');
+    console.log('2: Cannot read file1.txt');
     console.log(reason);
   })
   .then((data) => {
     console.dir({ file2: data });
-    return readTextFile('file3.txt');
+    return readFile('file3.txt', 'utf8');
   })
   .catch((reason) => {
     console.log('Cannot read file2.txt');
