@@ -1,7 +1,5 @@
 'use strict';
 
-const fetch = require('./6-fetch.js');
-
 const baseUrl = 'http://localhost:3000';
 
 const promises = [
