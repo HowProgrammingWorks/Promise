@@ -8,7 +8,8 @@ const promises = [
   fetch(baseUrl + '/city'),
 ];
 
-Promise.all(promises)
+Promise.allSettled(promises)
+//Promise.all(promises)
   .then((values) => {
     console.log(values);
   })
