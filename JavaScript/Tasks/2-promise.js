@@ -1,6 +1,7 @@
 'use strict';
 
 // Task: rewrite `total` from callbacks contract to promises
+// Hint: do not use `async () =>` syntax
 
 const total = (items, callback) => {
   let result = 0;
