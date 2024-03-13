@@ -1,19 +1,17 @@
 'use strict';
 
-// Task: change `iterate` contract from chainable callbacks
-// to Promise (chainable or you can call it with await syntax)
+// Task: rewrite `total` from callbacks contract to promises
 
-const iterate = (items) => {
-  let index = 0;
-  const chain = {
-    next: (callback) => {
-      if (index < items.length) {
-        callback(items[index++]);
-      }
-      return chain;
+const total = (items, callback) => {
+  let result = 0;
+  for (const item of items) {
+    if (item.price < 0) {
+      callback(new Error('Negative price is not allowed'));
+      return;
     }
-  };
-  return chain;
+    result += item.price;
+  }
+  callback(null, result);
 };
 
 const electronics = [
@@ -22,11 +20,7 @@ const electronics = [
   { name: 'HDMI cable', price: 10 },
 ];
 
-// Use await syntax to get items
-iterate(electronics).next((item) => {
-  console.log(item);
-}).next((item) => {
-  console.log(item);
-}).next((item) => {
-  console.log(item);
+total(electronics, (error, money) => {
+  if (error) console.error({ error });
+  else console.log({ money });
 });
