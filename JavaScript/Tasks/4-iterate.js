@@ -11,7 +11,7 @@ const iterate = (items) => {
         callback(items[index++]);
       }
       return chain;
-    }
+    },
   };
   return chain;
 };
@@ -23,10 +23,13 @@ const electronics = [
 ];
 
 // Use await syntax to get items
-iterate(electronics).next((item) => {
-  console.log(item);
-}).next((item) => {
-  console.log(item);
-}).next((item) => {
-  console.log(item);
-});
+iterate(electronics)
+  .next((item) => {
+    console.log(item);
+  })
+  .next((item) => {
+    console.log(item);
+  })
+  .next((item) => {
+    console.log(item);
+  });

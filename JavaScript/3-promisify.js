@@ -1,12 +1,15 @@
 'use strict';
 
-const promisify = (fn) => (...args) => new Promise((resolve, reject) => {
-  args.push((err, result) => {
-    if (err) reject(err);
-    else resolve(result);
-  });
-  fn(...args);
-});
+const promisify =
+  (fn) =>
+  (...args) =>
+    new Promise((resolve, reject) => {
+      args.push((err, result) => {
+        if (err) reject(err);
+        else resolve(result);
+      });
+      fn(...args);
+    });
 
 const fs = require('node:fs');
 

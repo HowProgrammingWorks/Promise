@@ -22,7 +22,7 @@ const routes = {
       name: 'Kyiv',
       country: 'Ukraine',
     });
-  }
+  },
 };
 
 const server = http.createServer((req, res) => {

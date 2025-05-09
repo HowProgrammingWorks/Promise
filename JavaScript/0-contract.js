@@ -9,8 +9,11 @@ const promise = new Promise((resolve, reject) => {
 
 console.dir(promise); // Promise { <pending> }
 
-promise.then((value) => {
-  console.log({ value });
-}, (error) => {
-  console.error(error);
-});
+promise.then(
+  (value) => {
+    console.log({ value });
+  },
+  (error) => {
+    console.error(error);
+  },
+);

@@ -9,7 +9,7 @@ const promises = [
 ];
 
 Promise.allSettled(promises)
-//Promise.all(promises)
+  //Promise.all(promises)
   .then((values) => {
     console.log(values);
   })

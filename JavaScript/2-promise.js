@@ -45,7 +45,8 @@ const readFile = (filename, encoding) =>
     fs.readFile(filename, encoding, (err, data) => {
       if (err) reject(err);
       else resolve(data.toString());
-    }));
+    }),
+  );
 
 readFile('file1.txt', 'utf8')
   .then((data) => {

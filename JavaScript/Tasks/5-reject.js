@@ -8,12 +8,13 @@
 const iterate = (items) => {
   let index = 0;
   return {
-    next: () => new Promise((fulfill) => {
-      if (index < items.length) {
-        return fulfill(items[index++]);
-      }
-      throw new Error('No more items to iterate');
-    })
+    next: () =>
+      new Promise((fulfill) => {
+        if (index < items.length) {
+          return fulfill(items[index++]);
+        }
+        throw new Error('No more items to iterate');
+      }),
   };
 };
 
