@@ -37,10 +37,12 @@ const sumAsync = (a, b, callback) => {
 
 // New approach
 
-(async () => {
+const main = async () => {
   const { promise, resolve, reject } = Promise.withResolvers();
   setTimeout(reject, 1000, new Error('Timed out'));
   sumAsync(6, 7, resolve);
   const result = await promise;
   console.log({ result });
-})();
+};
+
+main();

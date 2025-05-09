@@ -24,7 +24,7 @@ const electronics = [
   { name: 'HDMI cable', price: 10 },
 ];
 
-(async () => {
+const main = async () => {
   const items = iterate(electronics);
   const item1 = await items.next();
   console.log(item1);
@@ -34,4 +34,6 @@ const electronics = [
   console.log(item3);
   const item4 = await items.next();
   console.log(item4);
-})();
+};
+
+main();
